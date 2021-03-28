@@ -8,8 +8,11 @@ namespace ConsoleApp1
 {
     class Program
     {
+        //JUEGO 3 EN RAYA//
         static void Main(string[] args)
         {
+
+            //CREA UNA MATRIZ 3X3 DE TIPO CHAR 
             char[,] a = new char[3, 3];
             for (int f = 0; f < 3; f++)
             {
@@ -18,18 +21,31 @@ namespace ConsoleApp1
                     a[f, g] = '-';
                 }
             }
+
+
+            //
             bool d = true, e=true;
+
+            //VARIABLE INICIADOR
             char t='O';
+
+            //POSICIONES A INSERTAR EN LA MATRIZ
             int b,c;
+
+            //MIENTRAS EL JUEGO SIGA ACTIVO
             while (e)
             {
+                //INTRODUCIR LAS COORDENADAS
                 if (d)
                     Console.WriteLine("intro las coordenadas de su posicion para el jugador 1(O)(x=1-3 & y=1-3):");
                               
                 else        
-                    Console.WriteLine("intro las coordenadas de su posicion para el jugador 1(X)(x=1-3 & y=1-3):");                
+                    Console.WriteLine("intro las coordenadas de su posicion para el jugador 1(X)(x=1-3 & y=1-3):");       
                 c = Int32.Parse(Console.ReadLine());
                 b = Int32.Parse(Console.ReadLine());
+
+
+
                 if (c <= 3 && c >= 1 && b <= 3 && b >= 1)
                 {
                     if (a[b - 1, c - 1] == '-')
