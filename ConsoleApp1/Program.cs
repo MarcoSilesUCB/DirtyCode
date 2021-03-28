@@ -8,7 +8,7 @@ namespace ConsoleApp1
 {
     class Program
     {
-        //JUEGO 3 EN RAYA//
+        //JUEGO 'TRES EN RAYA'//
         static void Main(string[] args)
         {
 
@@ -23,8 +23,8 @@ namespace ConsoleApp1
             }
 
 
-            //
-            bool d = true, e=true;
+            //VARIABLE 'd' QUE COMPRUEBA QUE EL TURNO PASO Y VARIABLE 'e' QUE COMPRUEBA SI EL JUEGO TERMINO
+            bool d = true,e = true;
 
             //VARIABLE INICIADOR
             char t='O';
@@ -35,7 +35,7 @@ namespace ConsoleApp1
             //MIENTRAS EL JUEGO SIGA ACTIVO
             while (e)
             {
-                //INTRODUCIR LAS COORDENADAS
+                //INTRODUCE LAS COORDENADAS
                 if (d)
                     Console.WriteLine("intro las coordenadas de su posicion para el jugador 1(O)(x=1-3 & y=1-3):");
                               
@@ -45,21 +45,27 @@ namespace ConsoleApp1
                 b = Int32.Parse(Console.ReadLine());
 
 
-
+                //COMPRUEBA QUE LAS COORDENADAS INTRODUCIDAS NO SE PASEN DEL LIMITE
                 if (c <= 3 && c >= 1 && b <= 3 && b >= 1)
                 {
+                    //COMPRUEBA QUE LA CASILLA ESTE VACIA
                     if (a[b - 1, c - 1] == '-')
                     {
+                        //SI EL PRIMER TURNO NO PASO INSERTA LA VARIABLE t EN LAS COORDENADAS DADAS
                         if (d)
                         {
                             t = 'O';
                             d = false;
                         }
+
+                        //SI EL PRIMER TURNO PASO INSERTA LA NUEVA VARIABLE t EN LAS COORDENADAS DADAS
                         else
                         {
                             t = 'X';
                             d = true;
                         }
+
+                        //RECORRE LA MATRIZ
                         for (int i = 0; i < 3; i++)
                         {
                             for (int j = 0; j < 3; j++)
@@ -70,6 +76,8 @@ namespace ConsoleApp1
                             }
                             Console.WriteLine(" ");
                         }
+
+                        //COMPRUEBA LAS DIFERENTES CONDICIONES PARA GANA EN EL 'TRES EN RAYA'
                         if (a[0, 0] == 'O' && a[0, 1] == 'O' && a[0, 2] == 'O')
                             e = false;
                         if (a[0, 0] == 'O' && a[1, 0] == 'O' && a[2, 0] == 'O')
@@ -86,7 +94,6 @@ namespace ConsoleApp1
                             e = false;
                         if (a[2, 0] == 'O' && a[1, 1] == 'O' && a[0, 2] == 'O')
                             e = false;
-
                         if (a[0, 0] == 'X' && a[0, 1] == 'X' && a[0, 2] == 'X')
                             e = false;
                         if (a[0, 0] == 'X' && a[1, 0] == 'X' && a[2, 0] == 'X')
