@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    class Program
+    class Juego
     {
         //COMPRUEBA LAS DIFERENTES CONDICIONES PARA GANA EN EL 'TRES EN RAYA'
         //(Cambio a una nueva funcion, que verifica las codiciones para ganar el juego)
@@ -78,16 +78,22 @@ namespace ConsoleApp1
             //(Cambio de los nombres de las variables 'b -> posX' ,'e -> juegoActivo')
             int posX,posY;
 
+            Console.WriteLine("-=-=-=TRES EN RAYA=-=-=-");
+
             //MIENTRAS EL JUEGO SIGA ACTIVO
             while (juegoActivo)
             {
                 //INTRODUCE LAS COORDENADAS
                 if (pasaTurno)
+                {
                     Console.WriteLine("===Jugador 1===");
-                              
-                else        
+                    Console.WriteLine("Figura: 0");
+                } 
+                else
+                {
                     Console.WriteLine("===Jugador 2===");
-
+                    Console.WriteLine("Figura: X");
+                }
                 Console.WriteLine("Posicion en X: ");
                 posX = Int32.Parse(Console.ReadLine());
                 Console.WriteLine("Posicion en Y: ");
@@ -127,7 +133,8 @@ namespace ConsoleApp1
                             Console.WriteLine(" ");
                         }
 
-                        //**CONDICIONALES PARA GANAR** - REFACTORIZADO//
+                        //**CONDICIONALES PARA GANAR**//
+                        //(Cambio a uan nueva funcion)
                         juegoActivo = condicionGanar(matriz);
 
                     }
